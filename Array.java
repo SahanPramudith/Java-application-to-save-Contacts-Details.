@@ -1,5 +1,5 @@
 import java.util.*;
-class Example{
+class Array{
 //=========================================================================================================================
 	public static String[]phoneNumberArry=new String[0];
 	public static String[]nameArray=new String[0];
@@ -10,7 +10,7 @@ class Example{
 
 //=============================generate id============================================================================================
 
-	public static String  generateid(){
+	public static String  generateId(){
 		if (idArray.length==0)
 		{
 			 return "C0001";
@@ -45,7 +45,7 @@ class Example{
 //=============================addCountact / ExtendArray============================================================================================
 
 	public static void ExtendArray(){
-			
+		String[] tempidArray =new String[idArray.length+1];
 		String[]tempnunber=new String[phoneNumberArry.length+1];
 		String[]tempname=new String[nameArray.length+1];
 		String[]tempcompany=new String[companyArray.length+1];
@@ -53,7 +53,7 @@ class Example{
 		String[]tempbirthday=new String[birthdayArray.length+1];
 		
 		for (int i = 0; i < phoneNumberArry.length; i++)
-		{
+		{	tempidArray[i]=idArray[i];
 			tempnunber[i]=phoneNumberArry[i];
 			tempname[i]=nameArray[i];
 			tempcompany[i]=companyArray[i];
@@ -65,6 +65,7 @@ class Example{
 		companyArray=tempcompany;
 		salaryArray=tempsalary;
 		birthdayArray=tempbirthday;
+		idArray=tempidArray;
 	}
 	
 	public static void addCountact(){
@@ -77,8 +78,9 @@ class Example{
 			System.out.println("+-------------------------------------+");
 			System.out.println("");
 			
-			String id = generateid();
-			System.out.println(id + "\n================\n\n");
+			String id = generateId();
+            System.out.println("\n" + id);
+            System.out.println("=============");
 
 
 			
@@ -107,13 +109,14 @@ class Example{
 			ExtendArray();
 	
 	/////////////////////////////////////////////////////////////
-	
+			
+			idArray[idArray.length-1]=id;
 			phoneNumberArry[phoneNumberArry.length-1]=number;
 			nameArray[nameArray.length-1]=name;
 			companyArray[companyArray.length-1]=compname;
 			salaryArray[salaryArray.length-1]=salary;
 			birthdayArray[birthdayArray.length-1]=birth;
-	
+			
 	/////////////////////////////////////////////////////////////
 			System.out.println("");
 			System.out.println("Contact has been added Succesfully ........... ");
